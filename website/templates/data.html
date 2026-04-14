@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h2>Netflix Data</h2>
+
+<a href="/about">About</a>
+
+<form method="POST" action="/search">
+    <input type="text" name="keyword" placeholder="Search by title">
+    <button type="submit">Search</button>
+</form>
+
+<table border="1">
+<tr>
+  <th>Title</th>
+  <th>Type</th>
+  <th>Country</th>
+  <th>Year</th>
+  <th>Rating</th>
+  <th>Duration</th>
+</tr>
+
+{% for row in data %}
+<tr>
+  <td>{{ row[0] }}</td>
+  <td>{{ row[1] }}</td>
+  <td>{{ row[2] }}</td>
+  <td>{{ row[3] }}</td>
+  <td>{{ row[4] }}</td>
+  <td>{{ row[5] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<a href="/add">Add New Record</a>
